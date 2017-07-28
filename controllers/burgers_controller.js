@@ -13,14 +13,20 @@ router.get('/', function(req, res) {
 })
 
 router.post('/', function(req, res) {
-    burger.create(req.body, function() {
-        res.redirect('/');
+    burger.create(req.body.newBurger, function() {
+        res.redirect('/index');
     })
 })
 
-router.put("/", function(req, res) {
-    burger.updateOne(req.body, function() {
-        res.redirect('/');
+router.put("/update/:id", function(req, res) {
+    burger.update(req.params.id, function() {
+        res.redirect('/index');
+    })
+})
+
+router.delete("/delete/:id", function(req, res) {
+    burger.delete(req.params.id, function(){
+        res.redirect("/index");
     })
 })
 

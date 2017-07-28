@@ -2,18 +2,23 @@ var orm = require('./../config/orm');
 
 var burger = {
     all: function(cb) {
-        orm.selectAll(function(res) {
+        orm.all(function(res) {
             cb(res)
         })
     },
     create: function(burger, cb) {
-        orm.insertOne(burger, function(res) {
+        orm.insert(burger, function(res) {
             cb(res);
         })
     },
-    update: function(burger, cb) {
-        orm.updateOne(burger, function(res) {
+    update: function(id, cb) {
+        orm.update(id, function(res) {
             cb(res);
+        })
+    },
+    delete: function(id, cb) {
+        orm.delete(id, function(res) {
+            cb(res)
         })
     }
 }
