@@ -1,6 +1,6 @@
 {{#each burger}}
     <div class="row">
-        <div class="col-md-4 offset-md-2" id="undevouredCont">
+        <div class="col-md-4 col-md-offset-2" id="undevouredCont">
             {{#unless this.devoured}}
                 <div class="undevoured">
                     {{this.id}}. {{this.burger_name}}
@@ -10,10 +10,13 @@
                 </div>
             {{/unless}}
         </div>
-        <div class="col-md-4 offset-md-2" id="devouredCont">
+        <div class="col-md-4 col-md-offset-2" id="devouredCont">
             {{#if this.devoured}}
                 <div class="devoured">
                     {{this.id}}. {{this.burger_name}}
+                    <form action="index/delete/{{this.id}}?_method=DELETE" method="POST">
+                        <input type="submit" value="Throw out?">
+                    </form>
                 </div>
             {{/if}}
         </div>

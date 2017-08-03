@@ -11,9 +11,9 @@ var orm = {
         })
     },
     insert: function(burg, callback) {
-        var i = "INSERT INTO " + tablename + " (burger_name, date) VALUES (?, ?)";
+        var i = "INSERT INTO " + tablename + " (burger_name) VALUES (?)";
 
-        connection.query(i, [burg.name, 'NOW()'], function(err, res) {
+        connection.query(i, [burg, 'NOW()'], function(err, res) {
             if (err) throw err;
 
             callback(res);
